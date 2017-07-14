@@ -1,11 +1,19 @@
 <?php
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_URL, 'http://203.151.143.172/Json/gen_json1.php');
-$result = curl_exec($ch);
-curl_close($ch);
+$db_config=array(
+    "host"=>"203.151.143.164",
+    "user"=>"root",
+    "pass"=>"noconly",
+    "dbname"=>"line",
+    "charset"=>"utf8"
+);
+$mysqli = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], $db_config["dbname"]);
+$mysqli->set_charset($db_config["charset"]);
+if(mysqli_connect_error()) {
+    die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
+    exit;
+}
 
-$obj = json_decode($result);
-echo $obj->id;
+$result = $mysqli->query("SELECT * FROM `device_type`");
+$data = $result->fetch_assoc();
+echo $data['deviceTypeName'];
 ?>
