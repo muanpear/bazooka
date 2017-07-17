@@ -17,7 +17,7 @@
  //            $obj = json_decode($result1, true);
  //            print_r($obj);
            // echo $obj['humidity'];
-          $json = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
+          $json = file_get_contents('http://203.151.143.172/Json/gen.php');
 print_r($json);
 ?>
 	
