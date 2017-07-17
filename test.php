@@ -27,7 +27,7 @@ if (!is_null($events['events'])) {
             
             $obj = json_decode($result1, true);
             if(isset($obj['id'])){
-                $result_text = $obj['humidity'];
+                $result_text = $obj['id'];
             }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
                 $result_text = 'ไม่พบข้อมูล';
             }
