@@ -26,7 +26,7 @@ if (!is_null($events['events'])) {
             curl_close($ch1);
             
             $obj = json_decode($result1, true);
-            if(isset($obj['id'])){
+            if($obj['id'] == 1){
                 $result_text = $obj['id'];
             }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
                 $result_text = 'ไม่พบข้อมูล';
