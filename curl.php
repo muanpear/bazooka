@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
 <?php
 	// $ch1 = curl_init();
  //            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
@@ -12,3 +20,6 @@
           $json = file_get_contents('http://203.151.143.172/Json/gen_json1.php');
 print_r($json);
 ?>
+	
+</body>
+</html>
