@@ -17,6 +17,25 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
+			if($text == "wow"){
+				$ch1 = curl_init();
+            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/yourkey/forecast/lang:TH/q/Thailand/'.str_replace(' ', '%20', $text).'.json');
+            $result1 = curl_exec($ch1);
+            curl_close($ch1);
+            
+            $obj = json_decode($result1, true);
+            if(isset($obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'])){
+                $result_text = $obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'];
+            }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
+                $result_text = 'ไม่พบข้อมูล';
+            }
+            
+            $text = $result_text;
+			}else{
+				$text = 'love u';
+			}
 			$messages = [
 				'type' => 'text',
 				'text' => $text
