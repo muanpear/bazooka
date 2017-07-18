@@ -10,7 +10,7 @@
 	$ch1 = curl_init();
             curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch1, CURLOPT_URL, 'https://5c87e744.ngrok.io/');
+            curl_setopt($ch1, CURLOPT_URL, 'https://0dd07a7a.ngrok.io/json/file.json');
             $result1 = curl_exec($ch1);
             curl_close($ch1);
             
